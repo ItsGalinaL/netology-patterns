@@ -19,10 +19,14 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 class DeliveryTest {
 
+    @BeforeEach
+    void setup() {
+        open("http://localhost:9999");
+    }
+
     @Test
     @DisplayName("Should successful plan and replan meeting")
     void shouldSuccessfulPlanAndReplanMeeting() {
-        open("http://localhost:9999");
         var validUser = DataGenerator.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
